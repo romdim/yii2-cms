@@ -125,6 +125,33 @@ $ php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
 $ php yii migrate/up --migrationPath=@yii/rbac/migrations
 ```
 
+### Creating the admin role
+
+Navigate to page:
+~~~
+http://localhost/yii2-cms/user/register
+~~~
+and register a user named admin. Then go to `web.php` and change:
+
+```
+// To be changed after initial admin setup
+            'enableUnconfirmedLogin' => true,
+            'enableRegistration' => true,
+```
+
+to:
+
+```
+// To be changed after initial admin setup
+            'enableUnconfirmedLogin' => false,
+            'enableRegistration' => false,
+```
+
+Afterwards you can create/update/delete any user/role by logging into:
+~~~
+http://localhost/yii2-cms/user/admin
+~~~
+
 
 ### Setting Upload Folder
 

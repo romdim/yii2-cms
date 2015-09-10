@@ -9,8 +9,11 @@ $config = [
     'modules' => [
         'user' => [
             'class' => 'dektrium\user\Module',
-            'enableRegistration' => false,
+            'admins' => ['admin'],
             'enableConfirmation' => false,
+            // To be changed after initial admin setup
+            'enableUnconfirmedLogin' => true,
+            'enableRegistration' => true,
             'mailer' => [
                 'sender'                => 'no-reply@myhost.com', // or ['no-reply@myhost.com' => 'Sender name']
                 'welcomeSubject'        => 'Welcome subject',
