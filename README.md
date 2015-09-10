@@ -31,8 +31,9 @@ features to your application.
 SOME KEY ADDITIONS
 -------------------
 
-1. [User & RBAC Module](https://github.com/dektrium/yii2-rbac)
-2. [Redactor Plugin](https://github.com/yiidoc/yii2-redactor)
+1. [User Module](https://github.com/dektrium/yii2-user)
+2. [RBAC Module](https://github.com/dektrium/yii2-rbac)
+3. [Redactor Plugin](https://github.com/yiidoc/yii2-redactor)
 
 DIRECTORY STRUCTURE
 -------------------
@@ -120,6 +121,7 @@ After you downloaded and configured yii2-cms, the last thing you need to do is u
 the migration:
 
 ```bash
+$ php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
 $ php yii migrate/up --migrationPath=@yii/rbac/migrations
 ```
 

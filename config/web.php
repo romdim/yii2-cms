@@ -7,6 +7,18 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'modules' => [
+        'user' => [
+            'class' => 'dektrium\user\Module',
+            'enableRegistration' => false,
+            'enableConfirmation' => false,
+            'mailer' => [
+                'sender'                => 'no-reply@myhost.com', // or ['no-reply@myhost.com' => 'Sender name']
+                'welcomeSubject'        => 'Welcome subject',
+                'confirmationSubject'   => 'Confirmation subject',
+                'reconfirmationSubject' => 'Email change subject',
+                'recoverySubject'       => 'Recovery subject',
+            ],
+        ],
         'rbac' => [
             'class' => 'dektrium\rbac\Module',
         ],
