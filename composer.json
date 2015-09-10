@@ -23,7 +23,8 @@
         "yiisoft/yii2-swiftmailer": "~2.0",
         "dektrium/yii2-user": "~0.9",
         "dektrium/yii2-rbac": "~0.1",
-        "yiidoc/yii2-redactor": "~2.0"
+        "yiidoc/yii2-redactor": "~2.0",
+        "kartik-v/yii2-checkbox-x": "~1.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "~2.0",
