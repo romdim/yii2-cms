@@ -89,6 +89,13 @@ http://localhost/yii2-cms
 CONFIGURATION
 -------------
 
+### Cookie Validation Key
+
+Edit the file `config/web.php` with a cookie validation key, for example:
+`8qMRb7Z4pO9uQ6180jVq8L10KMprgbd2`
+
+**NOTE:** You can generate random keys [here](http://randomkeygen.com/)!
+
 ### Database
 
 Edit the file `config/db.php` with real data, for example:
@@ -114,6 +121,7 @@ the migration:
 
 ```bash
 $ php yii migrate/up --migrationPath=@yii/rbac/migrations
+```
 
 
 ### Setting Upload Folder
