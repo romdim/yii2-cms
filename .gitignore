@@ -1,6 +1,6 @@
-# index files
-/index.php
-/index-test.php
+# index files - Why were these included? (kartik-v/app-practical-b)
+#/index.php
+#/index-test.php
 
 # phpstorm project files
 .idea
