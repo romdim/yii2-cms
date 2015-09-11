@@ -6,27 +6,6 @@ $config = [
     'id' => 'app-practical-b',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'modules' => [
-        'user' => [
-            'class' => 'dektrium\user\Module',
-            'admins' => ['admin'],
-            'enableConfirmation' => false,
-            // To be changed after initial admin setup
-            'enableUnconfirmedLogin' => true,
-            'enableRegistration' => true,
-            'mailer' => [
-                'sender'                => 'no-reply@myhost.com', // or ['no-reply@myhost.com' => 'Sender name']
-                'welcomeSubject'        => 'Welcome subject',
-                'confirmationSubject'   => 'Confirmation subject',
-                'reconfirmationSubject' => 'Email change subject',
-                'recoverySubject'       => 'Recovery subject',
-            ],
-        ],
-        'rbac' => [
-            'class' => 'dektrium\rbac\Module',
-        ],
-        'redactor' => 'yii\redactor\RedactorModule'
-    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -62,6 +41,50 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+        ],
+    ],
+    'modules' => [
+        'user' => [
+            'class' => 'dektrium\user\Module',
+            'admins' => ['admin'],
+            'enableConfirmation' => false,
+            // To be changed after initial admin setup
+            'enableUnconfirmedLogin' => false,
+            'enableRegistration' => false,
+            'mailer' => [
+                'sender'                => 'no-reply@myhost.com', // or ['no-reply@myhost.com' => 'Sender name']
+                'welcomeSubject'        => 'Welcome subject',
+                'confirmationSubject'   => 'Confirmation subject',
+                'reconfirmationSubject' => 'Email change subject',
+                'recoverySubject'       => 'Recovery subject',
+            ],
+        ],
+        'rbac' => [
+            'class' => 'dektrium\rbac\Module',
+        ],
+        'redactor' => 'yii\redactor\RedactorModule',
+
+        'datecontrol' =>  [
+            'class' => 'kartik\datecontrol\Module',
+
+            // format settings for displaying each date attribute
+            'displaySettings' => [
+                'date' => 'dd-MM-yyyy',
+                'time' => 'H:i:s A',
+                'datetime' => 'd-m-Y H:i:s A',
+            ],
+
+            // format settings for saving each date attribute
+            'saveSettings' => [
+                'date' => 'yyyy-MM-dd',
+                'time' => 'H:i:s',
+                'datetime' => 'Y-m-d H:i:s',
+            ],
+
+            'ajaxConversion' => true,
+
+            // automatically use kartik\widgets for each of the above formats
+            'autoWidget' => true,
         ],
     ],
     'params' => $params,
