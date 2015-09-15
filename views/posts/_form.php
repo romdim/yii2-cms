@@ -13,7 +13,7 @@ use yii\widgets\ActiveForm;
 
 <div class="posts-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
@@ -23,15 +23,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'text')->widget(\yii\redactor\widgets\Redactor::className()) ?>
 
-    <?= $form->field($model, 'date')->widget(DateControl::classname(), [
-//            'type'=>DateControl::FORMAT_DATE,
-//            'ajaxConversion'=>false,
-            'options' => [
-                'pluginOptions' => [
-                    'autoclose' => true
-                ]
-            ]
-        ]);
+    <?= $form->field($model, 'date')->widget(DateControl::classname());
     ?>
 
     <?= $form->field($model, 'published')->widget(CheckboxX::classname(), [ 'pluginOptions'=>['threeState'=>false] ]) ?>

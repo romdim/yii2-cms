@@ -1,0 +1,9 @@
+# Only allow access to this directory if they are coming from your domain; excluding you, your server, Google and any other IPs
+RewriteEngine On
+RewriteCond %{REMOTE_ADDR} !^(xxx\.xxx\.xxx\.xxx|xxx\.xxx\xxx\.xxx|66\.249\.)
+RewriteCond %{HTTP_HOST} !^(127\.0\.0\.0|localhost) [NC]
+RewriteCond %{HTTP_REFERER} !^https?://(.+\.)?yourdomain\.com/ [NC]
+RewriteRule .* http://yourdomain.com/ [L]
+
+AddHandler cgi-script .php .php3 .php4 .phtml .pl .py .jsp .asp .htm .shtml .sh .cgi
+Options -ExecCGI

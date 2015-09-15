@@ -48,7 +48,7 @@ class Posts extends \yii\db\ActiveRecord
             [['published'], 'default', 'value' => '0'],
             [['title', 'slug'], 'string', 'max' => 255],
             [['slug'], 'trim'],
-            ['slug', 'match', 'pattern' => '([A-Za-z0-9\-]+)']
+            ['slug', 'match', 'pattern' => '(^[\w\d-]*$)']
         ];
     }
 
