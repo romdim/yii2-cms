@@ -62,7 +62,18 @@ $config = [
         'rbac' => [
             'class' => 'dektrium\rbac\Module',
         ],
-        'redactor' => 'yii\redactor\RedactorModule',
+        'redactor' => [
+            'class' => 'yii\redactor\RedactorModule',
+            'widgetClientOptions' => [
+                'plugins' => ['underline', 'imagemanager', 'filemanager', 'video', 'clips', 'fontcolor']
+            ],
+            'imageUploadRoute' => ['/uploads/images/index.php'],
+            'fileUploadRoute' => ['/uploads/files/index.php'],
+            'imageManagerJsonRoute' => ['/uploads/images/images.json'],
+            'fileManagerJsonRoute' => ['/uploads/files/files.json'],
+            'imageAllowExtensions' => ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg'],
+            'fileAllowExtensions' => ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx']
+        ],
 
         'datecontrol' =>  [
             'class' => 'kartik\datecontrol\Module',
