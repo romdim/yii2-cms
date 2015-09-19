@@ -14,10 +14,6 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
-        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -51,7 +47,7 @@ $config = [
             // To be changed after initial admin setup
             'enableUnconfirmedLogin' => true,
             'enableRegistration' => true,
-            
+
             'mailer' => [
                 'sender'                => 'no-reply@myhost.com', // or ['no-reply@myhost.com' => 'Sender name']
                 'welcomeSubject'        => 'Welcome subject',
