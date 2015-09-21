@@ -10,11 +10,19 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'gii'],
     'controllerNamespace' => 'app\commands',
+    'controllerMap' => [
+        'migrate' => [
+            'class' => 'dmstr\console\controllers\MigrateController'
+        ],
+    ],
     'modules' => [
         'gii' => 'yii\gii\Module',
         'rbac' => [
             'class' => 'dektrium\rbac\Module',
-        ]
+        ],
+        'user' => [
+            'class' => 'dektrium\user\Module',
+        ],
     ],
     'components' => [
         'cache' => [

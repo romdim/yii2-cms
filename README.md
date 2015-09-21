@@ -56,7 +56,7 @@ DIRECTORY STRUCTURE
 REQUIREMENTS
 ------------
 
-The minimum requirement by this application template that your Web server supports PHP 5.4.0.
+The minimum requirement by this application template is that your Web server supports PHP 5.4.0.
 
 
 INSTALLATION
@@ -121,33 +121,27 @@ After you downloaded and configured yii2-cms, the last thing you need to do is u
 the migration:
 
 ```bash
-$ php yii migrate/up --migrationPath=@vendor/dektrium/yii2-user/migrations
-$ php yii migrate/up --migrationPath=@yii/rbac/migrations
+$ php yii migrate/up
 ```
 
-### Creating the admin role
+### Administering users
 
-Navigate to page:
+By applying the migrations above, an admin, an editor and the according roles are created.
+Admin's role is hardcoded in the user module within the `web.php`. The editor role is applied to both the aforementioned new users.
+
+Login with:
 ~~~
-http://localhost/yii2-cms/user/register
+admin
+admin
 ~~~
-and register a user named admin. Then go to `web.php` and change:
+or
+~~~
+editor
+editor
+~~~
 
-```
-// To be changed after initial admin setup
-            'enableUnconfirmedLogin' => true,
-            'enableRegistration' => true,
-```
+As an admin you can manage the users at page:
 
-to:
-
-```
-// To be changed after initial admin setup
-            'enableUnconfirmedLogin' => false,
-            'enableRegistration' => false,
-```
-
-Afterwards you can create/update/delete any user/role by logging into:
 ~~~
 http://localhost/yii2-cms/user/admin
 ~~~
@@ -180,26 +174,4 @@ Config view/form
 
 ```
 <?= $form->field($model, 'body')->widget(\yii\redactor\widgets\Redactor::className()) ?>
-```
-
-or not use ActiveField
-
-```
-<?= \yii\redactor\widgets\Redactor::widget([
-    'model' => $model,
-    'attribute' => 'body'
-]) ?>
-```    
-or config advanced redactor reference [Docs](http://imperavi.com/redactor/docs/)
-
-```
-<?= $form->field($model, 'body')->widget(\yii\redactor\widgets\Redactor::className(), [
-    'clientOptions' => [
-        'imageManagerJson' => ['/redactor/upload/image-json'],
-        'imageUpload' => ['/redactor/upload/image'],
-        'fileUpload' => ['/redactor/upload/file'],
-        'lang' => 'zh_cn',
-        'plugins' => ['clips', 'fontcolor','imagemanager']
-    ]
-])?>
 ```

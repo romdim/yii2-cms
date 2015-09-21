@@ -44,9 +44,8 @@ $config = [
             'class' => 'dektrium\user\Module',
             'admins' => ['admin'],
             'enableConfirmation' => false,
-            // To be changed after initial admin setup
-            'enableUnconfirmedLogin' => true,
-            'enableRegistration' => true,
+            'enableUnconfirmedLogin' => false,
+            'enableRegistration' => false,
 
             'mailer' => [
                 'sender'                => 'no-reply@myhost.com', // or ['no-reply@myhost.com' => 'Sender name']
